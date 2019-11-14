@@ -1,16 +1,16 @@
 export default {
     s3: {
-      REGION: "YOUR_S3_UPLOADS_BUCKET_REGION",
-      BUCKET: "YOUR_S3_UPLOADS_BUCKET_NAME"
+      REGION: 'Global',
+      BUCKET: 's3-test-bucketname'
     },
     apiGateway: {
-      REGION: "YOUR_API_GATEWAY_REGION",
-      URL: "YOUR_API_GATEWAY_URL"
+      REGION: 'us-west-2',
+      URL: 'https://g0lz39q0ig.execute-api.us-west-2.amazonaws.com/dev'
     },
     cognito: {
-      REGION: "YOUR_COGNITO_REGION",
-      USER_POOL_ID: "YOUR_COGNITO_USER_POOL_ID",
-      APP_CLIENT_ID: "YOUR_COGNITO_APP_CLIENT_ID",
-      IDENTITY_POOL_ID: "YOUR_IDENTITY_POOL_ID"
+      REGION: 'us-west-2',
+      USER_POOL_ID: 'us-west-2_DiRBNYqcZ',
+      APP_CLIENT_ID: '3n6nh5mrjn12mdjq1plq7536om',
+      IDENTITY_POOL_ID: 'us-west-2:6d560606-abea-4db9-abbe-54eea2a84350'
     }
   };
