@@ -29,7 +29,7 @@ function App(props) {
   async function handleLogout() {
     await Auth.signOut();
     userHasAuthenticated(false);
-    props.history.push('/login');
+    props.history.push('/');
   }
 
   return (
@@ -38,7 +38,7 @@ function App(props) {
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">I AM</Link>
+              <Link to="/">Need a logo</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
