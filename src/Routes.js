@@ -5,6 +5,7 @@ import Login from './containers/Login';
 import NotFound from './containers/NotFound';
 import AppliedRoute from './components/AppliedRoute';
 import Signup from './containers/Signup';
+import Mia from './containers/Mia';
 
 export default function Routes({appProps}) {
   return (
@@ -12,6 +13,7 @@ export default function Routes({appProps}) {
         <AppliedRoute path='/' exact component={Home} appProps={appProps} />
         <AppliedRoute path='/login' exact component={Login} appProps={appProps}/>
         <AppliedRoute path="/signup" exact component={Signup} appProps={appProps} />
+        <AppliedRoute path="/mia" exact component={Mia} appProps={appProps} />
         <Route component={NotFound} />
     </Switch>
   );
