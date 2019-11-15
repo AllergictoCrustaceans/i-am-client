@@ -1,24 +1,43 @@
-import React, {useState} from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import {LinkContainer} from 'react-router-bootstrap';
+import {Auth} from 'aws-amplify';
 import "./App.css";
 import Routes from "./Routes";
 
 function App(props) {
+  const [isAuthenticating, setIsauthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
-  
-  function handleLogout() {
+
+  useEffect(() => {
+    onLoad();
+  }, []);
+
+  async function onLoad() {
+    try {
+      await Auth.currentSession();
+      userHasAuthenticated(true);
+    } catch(e) {
+      if(e !== 'No current user') {
+        alert(e);
+      }
+    }
+    setIsauthenticating(false);
+  }
+
+  async function handleLogout() {
+    await Auth.signOut();
     userHasAuthenticated(false);
   }
 
   return (
-    <Router>
+      !isAuthenticating &&
       <div className="App container">
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">Scratch</Link>
+              <Link to="/">I AM</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
@@ -26,7 +45,7 @@ function App(props) {
             <Nav pullRight>
               {
                 isAuthenticated ? <NavItem onClick={handleLogout}>Logout</NavItem> :
-                <>
+                  <>
                     <LinkContainer to="/signup">
                       <NavItem>Signup</NavItem>
                     </LinkContainer>
@@ -40,7 +59,6 @@ function App(props) {
         </Navbar>
         <Routes appProps={{ isAuthenticated, userHasAuthenticated}} />
       </div>
-    </Router>
   );
 }
 
