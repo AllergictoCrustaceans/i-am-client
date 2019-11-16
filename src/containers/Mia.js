@@ -1,13 +1,10 @@
-import React, {useRef, useState} from 'react';
-import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import React, {useState} from 'react';
+import {FormGroup, FormControl} from 'react-bootstrap';
 import {API} from 'aws-amplify';
 import LoaderButton from '../components/LoaderButton';
-import config from '../config';
 import './Mia.css';
-import { s3Upload } from '../libs/awsLib';
 
 export default function Mia(props) {
-    const file = useRef(null);
     const [content, setContent] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -15,22 +12,13 @@ export default function Mia(props) {
         return content.length > 0;
     }
 
-    function handleFileChange(event) {
-        file.current = event.target.files[0];
-    }
-
     async function handleSubmit(event) {
         event.preventDefault();
 
-        if(file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
-            alert(`Please pick a file smaller than ${config.MAX_ATTACHMENT_SIZE / 1000000} MB.`);
-            return;
-        }
         setIsLoading(true);
 
         try {
-            const attachment = file.current ? await s3Upload(file.current) : null;
-            await createMessage({content, attachment}); 
+            await createMessage({content}); 
             props.history.push('/mia');
         } catch(e) {
             alert(e);
@@ -53,10 +41,6 @@ export default function Mia(props) {
                         componentClass="textarea"
                         onChange={e => setContent(e.target.value)}
                     />
-                </FormGroup>
-                <FormGroup controlId="file">
-                    <ControlLabel>Attachment</ControlLabel>
-                    <FormControl onChange={handleFileChange} type="file" />
                 </FormGroup>
                 <LoaderButton
                     block
