@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+// import blender background image (OUTSIDE)
 
 export default function Home() {
   return (
