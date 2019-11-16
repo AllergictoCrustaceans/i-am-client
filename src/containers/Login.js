@@ -24,7 +24,7 @@ export default function Login(props) {
     try {
       await Auth.signIn(fields.email, fields.password);
       props.userHasAuthenticated(true);
-      props.history.push("/");
+      props.history.push("/main");
     } catch (e) {
       alert(e.message);
       setIsLoading(false);
