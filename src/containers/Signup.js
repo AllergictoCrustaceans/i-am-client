@@ -12,6 +12,7 @@ import "./Signup.css";
 
 export default function Signup(props) {
   const [fields, handleFieldChange] = useFormFields({
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -22,6 +23,7 @@ export default function Signup(props) {
 
   function validateForm() {
     return (
+      fields.name.length > 0 &&
       fields.email.length > 0 &&
       fields.password.length > 0 &&
       fields.password === fields.confirmPassword
@@ -39,6 +41,7 @@ export default function Signup(props) {
 
     try {
         const newUser = await Auth.signUp({
+            name: fields.name,
             username: fields.email,
             password: fields.password
         });
@@ -60,7 +63,7 @@ export default function Signup(props) {
         await Auth.signIn(fields.email, fields.password);
         
         props.userHasAuthenticated(true);
-        props.history.push('/');
+        props.history.push('/main');
     } catch(e) {
         alert(e.message);
         setIsLoading(false);
@@ -96,6 +99,15 @@ export default function Signup(props) {
   function renderForm() {
     return (
       <form onSubmit={handleSubmit}>
+        <FormGroup controlId="name" bsSize="large">
+          <ControlLabel>Name</ControlLabel>
+          <FormControl
+            autoFocus
+            type="name"
+            value={fields.name}
+            onChange={handleFieldChange}
+          />
+        </FormGroup>
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl
