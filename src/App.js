@@ -45,7 +45,10 @@ function App(props) {
           <Navbar.Collapse>
             <Nav pullRight>
               {
-                isAuthenticated ? <NavItem onClick={handleLogout}>Logout</NavItem> :
+                isAuthenticated
+                 ? <NavItem onClick={handleLogout}>Logout</NavItem>
+                  // home page should display an inside background
+                 :
                   <>
                     <LinkContainer to="/signup">
                       <NavItem>Signup</NavItem>
@@ -54,6 +57,7 @@ function App(props) {
                       <NavItem>Login</NavItem>
                     </LinkContainer>
                   </>
+                  // home page should display an outside background
               }
             </Nav>
           </Navbar.Collapse>
