@@ -1,0 +1,22 @@
+.Main .lander {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .Main .lander h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+  }
+  
+  .Main .lander p {
+    color: #999;
+  }
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
