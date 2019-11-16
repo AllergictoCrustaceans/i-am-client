@@ -37,29 +37,33 @@ function App(props) {
       <div className="App container">
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/">Need a logo</Link>
-            </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Nav pullRight>
-              {
-                isAuthenticated
-                 ? <NavItem onClick={handleLogout}>Logout</NavItem>
-                  // home page should display an inside background
-                 :
-                  <>
+            {
+              isAuthenticated
+              ? <>
+                  <Navbar.Brand>
+                    <Link to="/main">Main</Link>
+                  </Navbar.Brand> 
+                  <Nav pullRight>
+                    <NavItem onClick={handleLogout}>Logout</NavItem>
+                  </Nav> 
+                </>
+              : <>
+                  <Navbar.Brand>
+                    <Link to="/">Need a Logo</Link>
+                  </Navbar.Brand>
+                  <Nav pullRight>
                     <LinkContainer to="/signup">
                       <NavItem>Signup</NavItem>
                     </LinkContainer>
                     <LinkContainer to="/login">
                       <NavItem>Login</NavItem>
                     </LinkContainer>
-                  </>
-                  // home page should display an outside background
-              }
-            </Nav>
+                  </Nav>
+                </>
+            }
           </Navbar.Collapse>
         </Navbar>
         <Routes appProps={{ isAuthenticated, userHasAuthenticated}} />
