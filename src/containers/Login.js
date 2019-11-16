@@ -22,9 +22,7 @@ export default function Login(props) {
     setIsLoading(true);
 
     try {
-      const login = await Auth.signIn(fields.email, fields.password);
-      console.log(login);
-      //save to dynamo users table
+      await Auth.signIn(fields.email, fields.password);
       props.userHasAuthenticated(true);
       props.history.push("/");
     } catch (e) {
