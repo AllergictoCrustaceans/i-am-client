@@ -31,7 +31,7 @@ export default function Mia(props) {
         try {
             const attachment = file.current ? await s3Upload(file.current) : null;
             await createMessage({content, attachment}); 
-            props.history.push('/');
+            props.history.push('/mia');
         } catch(e) {
             alert(e);
             setIsLoading(false);
@@ -66,7 +66,7 @@ export default function Mia(props) {
                     isLoading={isLoading}
                     disabled={!validateForm()}
                 >
-                    Create
+                    Submit
                 </LoaderButton>
             </form>
         </div>
