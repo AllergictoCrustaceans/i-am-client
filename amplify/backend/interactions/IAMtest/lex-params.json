@@ -1,0 +1,83 @@
+{
+    "resourceName": "IAMtest",
+    "botName": "IAM",
+    "intents": [
+        {
+            "lambda": {
+                "region": "us-west-2",
+                "accountId": "902317595156",
+                "lambdaArn": "arn:aws:lambda:us-west-2:902317595156:function:checkSentiment",
+                "lambdaName": "checkSentiment"
+            },
+            "cancelMessage": "Alright :) We can talk about something else, whenever you're ready. ",
+            "confirmationQuestion": "Do you want to continue talking about {feelings}?",
+            "slots": [
+                {
+                    "name": "name",
+                    "type": "AMAZON.Person",
+                    "prompt": "Hello! :) What's your name? ",
+                    "required": true,
+                    "customType": false
+                },
+                {
+                    "name": "subject",
+                    "type": "AMAZON.Genre",
+                    "prompt": "What would you like to talk about?",
+                    "required": true,
+                    "customType": false
+                },
+                {
+                    "name": "thoughts",
+                    "type": "thoughts",
+                    "prompt": "Okay :) I'm listening-- what do you think about {subject}?",
+                    "required": false,
+                    "customType": true
+                },
+                {
+                    "name": "feelings",
+                    "type": "thoughts",
+                    "prompt": "Okay :) I'm listening. What do you think about {subject}? ",
+                    "required": true,
+                    "customType": true
+                }
+            ],
+            "utterances": [
+                "Hi Mia",
+                "Hey Mia",
+                "Miaaaa",
+                "Yooo Mia",
+                "Mia"
+            ],
+            "intentName": "Topic",
+            "newSlotTypes": []
+        },
+        {
+            "slots": [
+                {
+                    "name": "goodbyeName",
+                    "type": "AMAZON.Person",
+                    "prompt": "Well, thanks for opening up to me. :) It left a mark on me. I'm so sorry, but remind me what's your name again? ",
+                    "required": false,
+                    "customType": false
+                }
+            ],
+            "utterances": [
+                "Bye Mia",
+                "Got to go",
+                "Gotta go",
+                "Catch you later",
+                "See you later",
+                "I can't talk to you anymore",
+                "See ya",
+                "Peace out",
+                "Thanks for talking to me",
+                "Thank you for listening"
+            ],
+            "intentName": "Goodbye",
+            "newSlotTypes": []
+        }
+    ],
+    "outputVoice": false,
+    "sessionTimeout": "30",
+    "coppa": false
+}
