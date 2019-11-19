@@ -13,5 +13,10 @@ export default {
       USER_POOL_ID: 'us-west-2_DiRBNYqcZ',
       APP_CLIENT_ID: '3n6nh5mrjn12mdjq1plq7536om',
       IDENTITY_POOL_ID: 'us-west-2:6d560606-abea-4db9-abbe-54eea2a84350'
+    },
+    interactions: {
+      NAME : 'IAM',
+      ALIAS : 'Test',
+      REGION : 'us-west-2'
     }
   };
