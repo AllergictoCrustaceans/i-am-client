@@ -1,8 +1,6 @@
-import React, {Component, useState} from 'react'; //useState
-import {FormGroup, FormControl} from 'react-bootstrap';
-import Amplify, {Interactions, API} from 'aws-amplify'; //Interactions API
+import React, {Component} from 'react';
+import Amplify from 'aws-amplify';
 import {ChatBot, AmplifyTheme} from 'aws-amplify-react';
-import LoaderButton from '../components/LoaderButton';
 import './Mia.css';
 import awsconfig from '../config';
 
@@ -29,6 +27,9 @@ const myTheme = {
 
 export default class Mia extends Component { // use Component when going back to bot
     
+    // need to connect to dynamo via userID
+    // send console.log userinput
+    // axios to your backend, and save it. 
 
     render() {
         return (
