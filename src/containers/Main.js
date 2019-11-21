@@ -19,7 +19,7 @@ export default function Home() {
           </LinkContainer>
         </div>
         <div className="moodsDiv">
-          <LinkContainer to='/moods'>
+          <LinkContainer to='/moods' >
               <button type="button" className="btn btn-primary btn-circle btn-xl">Moods</button>
           </LinkContainer>
         </div>
