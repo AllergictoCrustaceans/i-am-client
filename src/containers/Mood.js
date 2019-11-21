@@ -35,25 +35,6 @@ export default function Mood (props) {
         return API.get('moods', '/moods?email=' + props.email);
     }
 
-    // function renderMoodsList(moods) {
-    //     return (
-    //         <div className = "card-container" >
-    //             <div className="card-body">
-    //                 <div className = "desc">
-    //                     {
-    //                         moods[0].topic &&
-    //                     <h2 className = "moods__value">{moods[0].topic}</h2>
-    //                     }
-    //                     {
-    //                         moods[0].overallSentiment &&
-    //                     <h2 className = "moods__value">{moods[0].overallSentiment}</h2>
-    //                     }
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     )
-    // }
-
     function renderLander() {
         return (
             <div className = "lander">
@@ -69,23 +50,25 @@ export default function Mood (props) {
         } else {
             return moods.map((mood, index) => {
                 return (
-
                     <div key={index}>
-                        {mood.topic} 
-                        {mood.overallSentiment}
+                        <div className = "card-container" >
+                            <div className="card-body">
+                                <div className = "desc">
+                                    {
+                                        mood.topic &&
+                                    <h2 className = "moods__value">{mood.topic}</h2>
+                                    }
+                                    {
+                                        mood.overallSentiment &&
+                                    <h2 className = "moods__value">{mood.overallSentiment}</h2>
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )
             })
         } 
-        // return (
-        //     <div className = "moods" >
-        //         <PageHeader>Your Moods</PageHeader>
-        //         <ListGroup>
-        //             {!isLoading && renderMoodsList(moods)}
-        //         </ListGroup>
-                
-        //     </div>
-        // );
     }
 
     if(!props.sub || !props.email) {
@@ -99,6 +82,7 @@ export default function Mood (props) {
     return (
         <div>
             <div className = "Moods">
+                <PageHeader>Your Moods</PageHeader>
                 {props.isAuthenticated ? renderMoods() : renderLander()}
             </div>
         </div>
