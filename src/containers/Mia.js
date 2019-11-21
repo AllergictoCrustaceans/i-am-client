@@ -69,7 +69,6 @@ export default function Mia(props) {
             clearOnComplete={true}
             conversationModeOn={false}
             />
-            {props.sub} {props.email}
         </div>
     )
 }
