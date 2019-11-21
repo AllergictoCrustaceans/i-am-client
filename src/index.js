@@ -23,10 +23,15 @@ Amplify.configure({
     API: {
       endpoints: [
         {
-          name: "moods",
+          name: 'moods',
           endpoint: config.apiGateway.URL,
           region: config.apiGateway.REGION
         },
+        {
+          name: 'messages',
+          endpoint: config.apiGateway.URL,
+          region: config.apiGateway.REGION
+        }
       ]
     }
   });
