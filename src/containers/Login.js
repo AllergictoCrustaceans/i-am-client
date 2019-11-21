@@ -22,8 +22,16 @@ export default function Login(props) {
     setIsLoading(true);
 
     try {
-      await Auth.signIn(fields.email, fields.password);
+      const  loginRes = await Auth.signIn(fields.email, fields.password);
       props.userHasAuthenticated(true);
+
+      console.log(loginRes);
+
+      const sub = loginRes.attributes.sub;
+      const email = loginRes.attributes.email;
+      props.setUser(sub, email);
+      console.log('Just logged in!', 'Props:', props);
+
       props.history.push("/main");
     } catch (e) {
       alert(e.message);
