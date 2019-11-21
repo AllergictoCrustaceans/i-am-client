@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {PageHeader, ListGroup} from 'react-bootstrap';
+import {PageHeader} from 'react-bootstrap';
 
 import {API} from 'aws-amplify';
 import './Mood.css';
