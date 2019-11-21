@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {PageHeader, ListGroup, ListGroupItem} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import {PageHeader, ListGroup} from 'react-bootstrap';
 import {API} from 'aws-amplify';
 import './Messages.css';
 
