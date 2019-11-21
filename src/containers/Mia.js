@@ -1,8 +1,11 @@
-import React, {Component} from 'react';
-import Amplify from 'aws-amplify';
+import React, {useEffect, useState} from 'react';
+import Amplify, {Interactions} from 'aws-amplify';
 import {ChatBot, AmplifyTheme} from 'aws-amplify-react';
 import './Mia.css';
 import awsconfig from '../config';
+
+//GAHH DON'T DO THIS TO YOURSELF KATIE, YOU CANNOT USE ASYNC ON THIS CONTAINER 
+
 
 Amplify.configure ({
     ...awsconfig,
@@ -25,26 +28,48 @@ const myTheme = {
     }
 };
 
-export default class Mia extends Component { // use Component when going back to bot
-    
-    // need to connect to dynamo via userID
-    // send console.log userinput
-    // axios to your backend, and save it. 
+export default function Mia(props) {
 
-    render() {
+    const[nameSent, setnameSent] = useState(false);
+
+    useEffect(() => {
+        console.log(props);
+        console.log('sub', props.sub);
+        console.log('email:', props.email);
+        async function sendThing() {
+            const response = await Interactions.send('IAM', 'Hi Mia');
+            const email = await Interactions.send('IAM', props.email);
+            console.log(response.message);
+            console.log(email.message);
+        }
+        console.log(nameSent);
+        if(!nameSent) {
+            sendThing();
+            setnameSent(true);
+        } 
+    }, []);
+
+    if(!props.sub || !props.email) {
         return (
-            <div className="App">
-                <header className = "App=header" >
-                    <h3 className = "App-title">Please greet Mia to start a conversation</h3>
-                </header>
-                <ChatBot 
-                title="MIA"
-                theme={myTheme}
-                botName="IAM"
-                clearOnComplete={true}
-                conversationModeOn={false}
-                />
+            <div>
+                Hmm... user isn't authenticated. Try to sign in again?
             </div>
         )
     }
+
+    return (
+        <div className="App">
+            <header className = "App=header" >
+                <h3 className = "App-title">Please greet Mia to start a conversation</h3>
+            </header>
+            <ChatBot 
+            title="MIA"
+            theme={myTheme}
+            botName="IAM"
+            clearOnComplete={true}
+            conversationModeOn={false}
+            />
+            {props.sub} {props.email}
+        </div>
+    )
 }
