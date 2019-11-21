@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {PageHeader, ListGroup} from 'react-bootstrap';
+
 import {API} from 'aws-amplify';
 import './Mood.css';
 
@@ -19,9 +20,9 @@ export default function Mood (props) {
             }
 
             try {
-                const moods = await loadMoods();
-                console.log(moods);
-                setMoods(moods);
+                const fetchMoods = await loadMoods();
+                console.log("moods:", fetchMoods);
+                setMoods(fetchMoods);
             } catch(e) {
                 alert(e);
             }
@@ -34,9 +35,24 @@ export default function Mood (props) {
         return API.get('moods', '/moods?email=' + props.email);
     }
 
-    function renderMoodsList(moods) {
-        return null;
-    }
+    // function renderMoodsList(moods) {
+    //     return (
+    //         <div className = "card-container" >
+    //             <div className="card-body">
+    //                 <div className = "desc">
+    //                     {
+    //                         moods[0].topic &&
+    //                     <h2 className = "moods__value">{moods[0].topic}</h2>
+    //                     }
+    //                     {
+    //                         moods[0].overallSentiment &&
+    //                     <h2 className = "moods__value">{moods[0].overallSentiment}</h2>
+    //                     }
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
     function renderLander() {
         return (
@@ -48,30 +64,42 @@ export default function Mood (props) {
     }
 
     function renderMoods() {
-        return (
-            <div className = "moods" >
-                <PageHeader>Your Moods</PageHeader>
-                <ListGroup>
-                    {!isLoading && renderMoodsList(moods)}
-                </ListGroup>
-                {/* React cards?  */}
-            </div>
-        )
+        if(!moods) {
+            return 'There are currently no moods on record.';
+        } else {
+            return moods.map((mood, index) => {
+                return (
+
+                    <div key={index}>
+                        {mood.topic} 
+                        {mood.overallSentiment}
+                    </div>
+                )
+            })
+        } 
+        // return (
+        //     <div className = "moods" >
+        //         <PageHeader>Your Moods</PageHeader>
+        //         <ListGroup>
+        //             {!isLoading && renderMoodsList(moods)}
+        //         </ListGroup>
+                
+        //     </div>
+        // );
     }
 
-    if(!props.sub || !props.email){
-    return (
-        <div>
-            Hmm.. user isn't authenticated. Try to sign in again?
-        </div>
-    )
+    if(!props.sub || !props.email) {
+        return (
+            <div>
+                Hmm.. user isn't authenticated. Try to sign in again?
+            </div>
+        )
     }
 
     return (
         <div>
             <div className = "Moods">
                 {props.isAuthenticated ? renderMoods() : renderLander()}
-                {props.sub} {props.email}
             </div>
         </div>
     )
