@@ -9,6 +9,8 @@ export default function Messages(props) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        console.log('sub:', props.sub);
+        console.log('email:', props.email);
         async function onLoad() {
             if(!props.isAuthenticated) {
                 return;
@@ -28,33 +30,17 @@ export default function Messages(props) {
     }, [props.isAuthenticated]);
 
     function loadMessages() {
-        return API.get('messages', '/messages');
+        return API.get('messages', '/messages?email=' + props.email);
     }
 
     function renderMessagesList(messages) {
-        return [{}].concat(messages).map((message, i) => 
-            i !== 0 ? (
-                <LinkContainer key = {message.messageID} to = {`/messages/${message.messageID}`}>
-                    <ListGroupItem header = {message.content.trim().split('\n')[0]}>
-                        {"Created:" + new Date(message.createdAt).toLocaleString()}
-                    </ListGroupItem>
-                </LinkContainer>
-            ) : (
-                <LinkContainer key = "new" to = "/mia">
-                    <ListGroupItem>
-                        <h4>
-                            <b>{'\uFF0B'}</b> Create a new message
-                        </h4>
-                    </ListGroupItem>
-                </LinkContainer>
-            )
-        );
+        return;
     }
 
     function renderLander() {
         return (
             <div className = "lander">
-                <h3>Please sign in to display your chat history with Mia</h3>
+                <h3>Hmm, seems like you have no history with Mia.</h3>
             </div>
         );
     }
