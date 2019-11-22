@@ -1,11 +1,12 @@
-# INSTRUCTIONS ON HOW TO USE I-AM:
-**Instructions**
+# Instructions on How to Use I-AM:
+### **Instructions**
 
 1.) "git clone" this repo URL to your favorite code editor
 
 2.) "npm start" (should should run on http://localhost:3000).
 
-**Important**
+### **Important**
+
 If you do not want AWS Cognito to raid your inbox, please use the following default login credentials to navigate through the app: 
 
 1.) Click on the login button on the nav bar 
@@ -15,6 +16,11 @@ Login: admin@example.com
 Password: Passw0rd!
 
 
+### Current issues with the app: 
+
+1.) Refresh automatically logs user out. 
+
+2.) Sign up page is currently not working. 
 
 
 ## React Team's README
