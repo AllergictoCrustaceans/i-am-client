@@ -5,7 +5,7 @@
   
   .Main .lander h1 {
     font-family: "Open Sans", sans-serif;
-    font-weight: 600;
+    font-weight: 100;
   }
   
   .Main .lander p {
@@ -17,6 +17,7 @@
   height: 70px;
   padding: 10px 16px;
   border-radius: 35px;
-  font-size: 24px;
+  font-size: 11px;
   line-height: 1.33;
+  margin: 10px;
 }
