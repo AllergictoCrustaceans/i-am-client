@@ -1,3 +1,23 @@
+# INSTRUCTIONS ON HOW TO USE I-AM:
+**Instructions**
+1.) "git clone" this repo URL to your favorite code editor
+
+2.) "npm start" (should should run on http://localhost:3000).
+
+**Important**
+If you do not want AWS Cognito to raid your inbox, please use the following default login credentials to navigate through the app: 
+
+1.) Click on the login button on the nav bar 
+
+2.) Enter the following credentials:
+Login: admin@example.com
+Password: Passw0rd!
+
+
+
+
+## React Team's README
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
