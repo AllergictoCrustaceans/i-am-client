@@ -1,5 +1,6 @@
 # INSTRUCTIONS ON HOW TO USE I-AM:
 **Instructions**
+
 1.) "git clone" this repo URL to your favorite code editor
 
 2.) "npm start" (should should run on http://localhost:3000).
