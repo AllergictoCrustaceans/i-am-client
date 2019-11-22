@@ -18,12 +18,14 @@ Password: Passw0rd!
 
 ### Current issues with the app: 
 
-1.) Refresh automatically logs user out. 
+1.) Refreshing automatically logs user out (token issue).
 
 2.) Sign up page is currently not working. 
 
 
-## React Team's README
+
+
+# React Team's README
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
