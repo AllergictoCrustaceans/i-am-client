@@ -60,7 +60,14 @@ export default function Signup(props) {
 
     try {
         await Auth.confirmSignUp(fields.email, fields.confirmationCode);
-        await Auth.signIn(fields.email, fields.password);
+        const signinRes = await Auth.signIn(fields.email, fields.password);
+        
+        console.log(signinRes);
+
+        // const sub = signinRes.attributes.sub;
+        // const email = signinRes.attributes.email;
+        // props.setUser(sub, email);
+        // console.log('Just signed up!' , 'Props:', props);
         
         props.userHasAuthenticated(true);
         props.history.push('/main');
