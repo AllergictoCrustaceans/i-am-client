@@ -13,7 +13,7 @@ Amplify.configure ({
         bots: {
             "IAM" : {
                 "name" : "IAM",
-                "alias" : "$LATEST",
+                "alias" : "Test",
                 "region" : "us-west-2"
             }
         }
@@ -60,7 +60,7 @@ export default function Mia(props) {
     return (
         <div className="App">
             <header className = "App=header" >
-                <h3 className = "App-title">Please greet Mia to start a conversation</h3>
+                <h3 className = "App-title">Please greet Mia with "Hi, my name is _____ " to start a conversation</h3>
             </header>
             <ChatBot 
             title="MIA"
