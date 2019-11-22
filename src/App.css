@@ -1,3 +1,7 @@
+html {
+  background-color: rbg(247, 178, 101, 0.4);
+}
+
 .App {
   margin-top: 15px;
 }
@@ -5,3 +9,10 @@
 .App .navbar-brand {
   font-weight: bold;
 }
+
+.navbar {
+  background-color: rgb(247, 178, 101, 0.4);
+  border: rgb(247, 178, 101, 0.4);
+
+}
+
