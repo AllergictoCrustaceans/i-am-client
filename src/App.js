@@ -5,6 +5,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {Auth} from 'aws-amplify';
 import "./App.css";
 import Routes from "./Routes";
+import background from './sean-martin-bMhTQ4jdJtg-unsplash.jpg';
 
 function App(props) {
   const [isAuthenticating, setIsauthenticating] = useState(true);
@@ -32,42 +33,60 @@ function App(props) {
     props.history.push('/');
   }
 
+
+  const useWindowWith = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+      window.addEventListener('resize', handleWindowResize);
+      return () => window.removeEventListener('resize', handleWindowResize);
+    }, []);
+
+    return windowWidth;
+  }
+
+  const imageUrl =useWindowWith() >= 650 ? background : 'Screen to small to display image :(';
+
   return (
-      !isAuthenticating &&
-      <div className="App container">
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            {
-              isAuthenticated
-              ? <>
-                  <Navbar.Brand>
-                    <Link to="/main">Main</Link>
-                  </Navbar.Brand> 
-                  <Nav pullRight>
-                    <NavItem onClick={handleLogout}>Logout</NavItem>
-                  </Nav> 
-                </>
-              : <>
-                  <Navbar.Brand>
-                    <Link to="/">Need a Logo</Link>
-                  </Navbar.Brand>
-                  <Nav pullRight>
-                    <LinkContainer to="/signup">
-                      <NavItem>Signup</NavItem>
-                    </LinkContainer>
-                    <LinkContainer to="/login">
-                      <NavItem>Login</NavItem>
-                    </LinkContainer>
-                  </Nav>
-                </>
-            }
-          </Navbar.Collapse>
-        </Navbar>
-        <Routes appProps={{ isAuthenticated, userHasAuthenticated}} />
-      </div>
+    !isAuthenticating &&
+    <div className="App container" style={{backgroundImage: `url(${imageUrl})`}}>
+      <Navbar className = "navbar" fluid collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          {
+            isAuthenticated
+            ? <>
+                <Navbar.Brand>
+                  <Link to="/main">Main</Link>
+                </Navbar.Brand> 
+                <Nav pullRight>
+                  <NavItem onClick={handleLogout}>Logout</NavItem>
+                </Nav> 
+              </>
+            : <>
+                <Navbar.Brand>
+                  <Link to="/">I-AM</Link>
+                </Navbar.Brand>
+                <Nav pullRight>
+                  <LinkContainer to="/signup">
+                    <NavItem>Signup</NavItem>
+                  </LinkContainer>
+                  <LinkContainer to="/login">
+                    <NavItem>Login</NavItem>
+                  </LinkContainer>
+                </Nav>
+              </>
+          }
+        </Navbar.Collapse>
+      </Navbar>
+      <Routes appProps={{ isAuthenticated, userHasAuthenticated}} />
+    </div>     
   );
 }
 
