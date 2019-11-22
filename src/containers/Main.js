@@ -10,7 +10,7 @@ export default function Home() {
         <h1>I AM </h1>
         <div className="miaDiv">
           <LinkContainer to="/mia">
-              <button type="button" className="btn btn-primary btn-circle btn-xl">Mia</button>
+              <button type="button" className="btn btn-circle btn-xl">Mia</button>
           </LinkContainer>
         </div>
         {/* <div className="messagesDiv">
@@ -20,7 +20,7 @@ export default function Home() {
         </div> */}
         <div className="moodsDiv">
           <LinkContainer to='/moods' >
-              <button type="button" className="btn btn-primary btn-circle btn-xl">Moods</button>
+              <button type="button" className="btn btn-circle btn-xl">Moods</button>
           </LinkContainer>
         </div>
       </div>
