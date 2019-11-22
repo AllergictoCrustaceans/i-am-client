@@ -36,7 +36,6 @@ export default function Mood (props) {
     }
 
     function renderLander() {
-        isLoading(true);
         return (
             <div className = "lander">
                 <h1>I AM</h1>
