@@ -13,11 +13,11 @@ export default function Home() {
               <button type="button" className="btn btn-primary btn-circle btn-xl">Mia</button>
           </LinkContainer>
         </div>
-        <div className="messagesDiv">
+        {/* <div className="messagesDiv">
           <LinkContainer to='/messages'>
               <button type="button" className="btn btn-primary btn-circle btn-xl">Messages</button>
           </LinkContainer>
-        </div>
+        </div> */}
         <div className="moodsDiv">
           <LinkContainer to='/moods' >
               <button type="button" className="btn btn-primary btn-circle btn-xl">Moods</button>
