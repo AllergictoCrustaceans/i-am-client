@@ -7,12 +7,14 @@
 
 ### **Important**
 
-If you do not want AWS Cognito to raid your inbox, please use the following default login credentials to navigate through the app: 
+If you do not want AWS Cognito to raid your inbox, please use the following login credentials to navigate through the app: 
 
 1.) Click on the login button on the nav bar 
 
 2.) Enter the following credentials:
+
 Login: admin@example.com
+
 Password: Passw0rd!
 
 
