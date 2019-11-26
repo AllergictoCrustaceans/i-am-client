@@ -9,7 +9,6 @@
   
   .desc {
     height: 130px;
-    padding: 10px;
   }
   
   .desc h2 {
@@ -19,20 +18,21 @@
     color: black;
   }
   
-  .desc h3, p {
-    font-weight: 300;
-  }
-  
   .desc h3 {
-    color: #6c757d;
+    color: black;
     font-size: 1em;
     padding: 10px 0 10px 0;
     text-align: center;
   }
 
-  .moods__value {
-    color: #6c757d;
+  .moods__topic {
+    color: white;
     font-size: 1em;
-    padding: 10px 0 10px 0;
+    text-align: center;
+  }
+
+  .moods__value {
+    font-size: 1em;
+    padding: 2px 0 2px 0;
     text-align: center;
   }
