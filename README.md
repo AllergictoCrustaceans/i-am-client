@@ -1,11 +1,11 @@
 # Instructions on How to Use I-AM:
-### **Instructions**
+## **Instructions**
 
 1.) "git clone" this repo URL to your favorite code editor
 
 2.) "npm start" (should should run on http://localhost:3000).
 
-### **Important**
+## **Important**
 
 If you do not want AWS Cognito to raid your inbox, please use the following login credentials to navigate through the app: 
 
@@ -25,6 +25,11 @@ Password: Passw0rd!
 2.) Sign up page is currently not working. 
 
 
+## Current Updates:
+
+**As of 11/25/2019:** Current updates on fixing the above issues, as well as adding new features are being implemented on a separate branch called 'test-client'.
+
+----------------------------------------------------------------------------------
 
 
 # React Team's README
