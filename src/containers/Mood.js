@@ -48,7 +48,33 @@ export default function Mood (props) {
         if(!moods) {
             return 'There are currently no moods on record.';
         } else {
+            //const variable to lower case
+            //if lowercase variable is positive, then show this color 
             return moods.map((mood, index) => {
+                if(mood.overallSentiment === 'POSITIVE' && mood.positive >= 0.97) {
+                    return (
+                        <div key={index}>
+                            <div className = "card-container" >
+                                <div className="card-body">
+                                    <div className = "desc">
+                                        {
+                                            mood.topic &&
+                                        <h2 className = "moods__topic">{mood.topic}</h2>
+                                        }
+                                        {
+                                            mood.positive && 
+                                        <h3 className = "moods__value">{mood.positive}</h3> //node with color 
+                                        }
+                                        {
+                                            mood.overallSentiment &&
+                                        <h3 className = "moods__value">{mood.overallSentiment}</h3>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                } 
                 return (
                     <div key={index}>
                         <div className = "card-container" >
