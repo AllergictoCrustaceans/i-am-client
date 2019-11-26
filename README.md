@@ -1,11 +1,11 @@
 # Instructions on How to Use I-AM:
-### **Instructions**
+## **Instructions**
 
 1.) "git clone" this repo URL to your favorite code editor
 
 2.) "npm start" (should should run on http://localhost:3000).
 
-### **Important**
+## **Important**
 
 If you do not want AWS Cognito to raid your inbox, please use the following login credentials to navigate through the app: 
 
