@@ -25,7 +25,11 @@ Password: Passw0rd!
 2.) Sign up page is currently not working. 
 
 
+## Current Updates:
 
+**As of 11/25/2019:** Current updates on fixing the above issues, as well as adding new features are being implemented on a separate branch called 'test-client'.
+
+----------------------------------------------------------------------------------
 
 # React Team's README
 
