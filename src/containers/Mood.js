@@ -133,6 +133,7 @@ export default function Mood (props) {
         <div>
             <div className = "Moods">
                 <PageHeader>Your Moods</PageHeader>
+                {/* legend of colors + sentiment */}
                 {props.isAuthenticated ? renderMoods() : renderLander()}
             </div>
         </div>
