@@ -1,3 +1,18 @@
+.moodsLegend {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.legendExample {
+  display: inline-block;
+  margin: 0px 40px 0 0;
+}
+
+.divHoldingCard {
+  display: inline-block;
+}
+
 .card-container {
     width: 250px;
     border: 2px solid rgb(12, 45, 95);
@@ -9,30 +24,30 @@
   
   .desc {
     height: 130px;
-    padding: 10px;
   }
   
   .desc h2 {
-    font-size: 1em;
+    font-size: 1.3em;
     font-weight: 400;
     text-align: center;
     color: black;
   }
   
-  .desc h3, p {
-    font-weight: 300;
-  }
-  
   .desc h3 {
-    color: #6c757d;
-    font-size: 1em;
+    color: black;
+    font-size: 0.9em;
     padding: 10px 0 10px 0;
     text-align: center;
   }
 
-  .moods__value {
-    color: #6c757d;
+  .moods__topic {
+    color: white;
     font-size: 1em;
-    padding: 10px 0 10px 0;
+    text-align: center;
+  }
+
+  .moods__value {
+    font-size: 1em;
+    padding: 2px 0 2px 0;
     text-align: center;
   }
