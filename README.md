@@ -13,9 +13,9 @@ If you do not want AWS Cognito to raid your inbox, please use the following logi
 
 2.) Enter the following credentials:
 
-Login: admin@example.com
+**Login: admin@example.com**
 
-Password: Passw0rd!
+**Password: Passw0rd!**
 
 
 ### Current issues with the app: 
