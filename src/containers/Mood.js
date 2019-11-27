@@ -99,7 +99,7 @@ export default function Mood (props) {
                 }
 
                 return (
-                    <div key={index}>
+                    <div className = "divHoldingCard" key={index}>
                         <div className = "card-container" >
                             <div className="card-body">
                                 <div className = "desc">
