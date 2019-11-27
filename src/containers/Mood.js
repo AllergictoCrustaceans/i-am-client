@@ -49,6 +49,7 @@ export default function Mood (props) {
             return 'There are currently no moods on record.';
         } else {
             return moods.map((mood, index) => {
+                // what if there are multiple data about the same topic. 
                 let topic = mood.topic.toUpperCase();
 
                 let style = {
