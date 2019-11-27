@@ -1,3 +1,14 @@
+.moodsLegend {
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.legendExample {
+  display: inline-block;
+  margin: 0px 40px 0 0;
+}
+
 .divHoldingCard {
   display: inline-block;
 }
@@ -16,7 +27,7 @@
   }
   
   .desc h2 {
-    font-size: 1em;
+    font-size: 1.3em;
     font-weight: 400;
     text-align: center;
     color: black;
@@ -24,7 +35,7 @@
   
   .desc h3 {
     color: black;
-    font-size: 1em;
+    font-size: 0.9em;
     padding: 10px 0 10px 0;
     text-align: center;
   }
