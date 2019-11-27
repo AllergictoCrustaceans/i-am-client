@@ -111,7 +111,7 @@ export default function Mood (props) {
                                         <p style={style}></p>
                                     {
                                         mood.overallSentiment &&
-                                    <h2 className = "moods__value">{mood.overallSentiment}</h2>
+                                    <h3 className = "moods__value">{mood.overallSentiment}</h3>
                                     }
                                 </div>
                             </div>
@@ -130,11 +130,92 @@ export default function Mood (props) {
         )
     }
 
+    let legendPositive = {
+        padding:10,
+        display: 'inline-block',
+        margin: '0 40px 0 0',
+        backgroundColor: '#00796b',
+        borderRadius: "50%",
+        width:25,
+        height:25,
+    }
+
+    let legendMixed = {
+        padding:10,
+        margin: '0 40px 0 0',
+        display:'inline-block',
+        backgroundColor: '#795548',
+        borderRadius: "50%",
+        width:25,
+        height:25,
+    }
+
+    let legendNeutral = {
+        padding:10,
+        margin: '0 40px 0 0',
+        display:'inline-block',
+        backgroundColor: '#2196f3',
+        borderRadius: "50%",
+        width:25,
+        height:25,
+    }
+
+    let legendNegative = {
+        padding:10,
+        margin: '0 40px 0 0',
+        display:'inline-block',
+        backgroundColor: '#e91e63',
+        borderRadius: "50%",
+        width:25,
+        height:25,
+    }
+
+    let legendDark = {
+        padding:10,
+        margin: '0 40px 0 0',
+        display:'inline-block',
+        backgroundColor: '#004d40',
+        borderRadius: "50%",
+        width:25,
+        height:25,
+    }
+
+    let legendLight = {
+        padding:10,
+        margin: '0 40px 0 0',
+        display:'inline-block',
+        backgroundColor: '#4db6ac',
+        borderRadius: "50%",
+        width:25,
+        height:25,
+    }
     return (
         <div>
             <div className = "Moods">
                 <PageHeader>Your Moods</PageHeader>
-                {/* legend of colors + sentiment */}
+                <div className = "moodsLegend">
+                    <div>
+                        <h3>Color Legend: </h3>
+                        <p style={legendPositive}></p>
+                        <p style={legendMixed}></p>
+                        <p style = {legendNeutral}></p>
+                        <p style={legendNegative}></p>
+                    </div>
+                    <p className="legendExample">Postive</p>
+                    <p className="legendExample">Mixed</p>
+                    <p className="legendExample">Neutral</p>
+                    <p className="legendExample">Negative</p>
+
+                    <div>
+                        <h3>Example:</h3>
+                        <div>
+                            <p style={legendDark}></p>
+                            <p style={legendLight}></p>
+                        </div>
+                        <p className="legendExample">Darker Shade = Intense Mood</p>
+                        <p className="legendExample">Lighter Shade = Less Intense Mood</p>
+                    </div>
+                </div>
                 {props.isAuthenticated ? renderMoods() : renderLander()}
             </div>
         </div>
