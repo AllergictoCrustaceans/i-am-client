@@ -27,7 +27,9 @@ Password: Passw0rd!
 
 ## Current Updates:
 
-**As of 11/25/2019:** Current updates on fixing the above issues, as well as adding new features are being implemented on a separate branch called 'test-client'.
+**As of 11/26/2019:** Successfully implemented extra 'feature' to visualize sentiment. 
+
+**As of 11/25/2019:** Work on separate branch called 'test-client' to implement an extra 'feature' to visualize sentiment.
 
 ----------------------------------------------------------------------------------
 
