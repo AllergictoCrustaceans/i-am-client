@@ -62,13 +62,37 @@ export default function Mood (props) {
                 // (change style to be correct based on overall sentiment and number)
 
                 if(mood.overallSentiment.toLowerCase() === 'positive') {
-                    style.backgroundColor = 'green'
+                    if(mood.positive >= .25 && mood.positive <= 0.5) {
+                        style.backgroundColor = '#4db6ac'
+                    } else if(mood.positive >= 0.51 && mood.positive <= 0.75) {
+                        style.backgroundColor = '#00796b'
+                    } else if(mood.positive >=0.76 && mood.positive <= 1) {
+                        style.backgroundColor = '#004d40'
+                    }
                 } else if(mood.overallSentiment.toLowerCase() === 'negative') {
-                    style.backgroundColor = 'red'
+                    if(mood.negative >= 0.25 && mood.negative <= 0.5) {
+                        style.backgroundColor = '#f06292'
+                    } else if(mood.negative >= 0.51 && mood.negative <= 0.75) {
+                        style.backgroundColor = '#e91e63'
+                    } else if(mood.negative >= 0.76 && mood.negative <= 1) {
+                        style.backgroundColor = '#880e4f'
+                    }
                 } else if(mood.overallSentiment.toLowerCase() === 'mixed') {
-                    style.backgroundColor = 'blue'
+                    if(mood.mixed >= 0.25 && mood.mixed <= 0.5) {
+                        style.backgroundColor = '#a1887f'
+                    } else if(mood.mixed >= 0.51 && mood.mixed <= 0.75) {
+                        style.backgroundColor = '#795548'
+                    } else if(mood.mixed >= 0.76 && mood.mixed <= 1) {
+                        style.backgroundColor = '#880e4f'
+                    }
                 } else {
-                    style.backgroundColor = 'yellow'
+                    if(mood.neutral >= 0.25 && mood.neutral <= 0.5) {
+                        style.backgroundColor = '#64b5f6'
+                    } else if(mood.neutral >= 0.51 && mood.neutral <= 0.75) {
+                        style.backgroundColor = '#2196f3'
+                    } else if(mood.neutral >= 0.75 && mood.neutral <= 1) {
+                        style.backgroundColor = '#0d47a1'
+                    }
                 }
 
                 return (
