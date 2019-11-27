@@ -48,33 +48,29 @@ export default function Mood (props) {
         if(!moods) {
             return 'There are currently no moods on record.';
         } else {
-            //const variable to lower case
-            //if lowercase variable is positive, then show this color 
             return moods.map((mood, index) => {
-                if(mood.overallSentiment === 'POSITIVE' && mood.positive >= 0.97) {
-                    return (
-                        <div key={index}>
-                            <div className = "card-container" >
-                                <div className="card-body">
-                                    <div className = "desc">
-                                        {
-                                            mood.topic &&
-                                        <h2 className = "moods__topic">{mood.topic}</h2>
-                                        }
-                                        {
-                                            mood.positive && 
-                                        <h3 className = "moods__value">{mood.positive}</h3> //node with color 
-                                        }
-                                        {
-                                            mood.overallSentiment &&
-                                        <h3 className = "moods__value">{mood.overallSentiment}</h3>
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                } 
+                let style = {
+                    padding:10,
+                    margin:20,
+                    display:"inline-block",
+                    backgroundColor: 'black',
+                    borderRadius: "50%",
+                    width:50,
+                    height:50,
+                }
+                // mood.overallSentiment === 'POSITIVE' ? style.color = 'green' : style.color = 'black';
+                // (change style to be correct based on overall sentiment and number)
+
+                if(mood.overallSentiment.toLowerCase() === 'positive') {
+                    style.backgroundColor = 'green'
+                } else if(mood.overallSentiment.toLowerCase() === 'negative') {
+                    style.backgroundColor = 'red'
+                } else if(mood.overallSentiment.toLowerCase() === 'mixed') {
+                    style.backgroundColor = 'blue'
+                } else {
+                    style.backgroundColor = 'yellow'
+                }
+
                 return (
                     <div key={index}>
                         <div className = "card-container" >
@@ -83,6 +79,10 @@ export default function Mood (props) {
                                     {
                                         mood.topic &&
                                     <h2 className = "moods__value">{mood.topic}</h2>
+                                    }
+                                    {
+                                        mood.positive && 
+                                    <h2 className = "moods__value" style={style}></h2>
                                     }
                                     {
                                         mood.overallSentiment &&
