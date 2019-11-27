@@ -27,6 +27,8 @@ Password: Passw0rd!
 
 ## Current Updates:
 
+**As if 11/27/2019:** Work on separate branch called 'test-client' to import interactive Blender model to react via three.js.
+
 **As of 11/26/2019:** Successfully implemented extra 'feature' to visualize sentiment. 
 
 **As of 11/25/2019:** Work on separate branch called 'test-client' to implement an extra 'feature' to visualize sentiment.
