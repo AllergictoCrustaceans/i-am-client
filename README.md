@@ -27,7 +27,7 @@ If you do not want AWS Cognito to raid your inbox, please use the following logi
 
 ## Current Updates:
 
-**As if 11/27/2019:** Work on separate branch called 'test-client' to import interactive Blender model to react via three.js.
+**As of 11/27/2019:** Work on separate branch called 'test-client' to import interactive Blender model to react via three.js.
 
 **As of 11/26/2019:** Successfully implemented extra 'feature' to visualize sentiment. 
 
