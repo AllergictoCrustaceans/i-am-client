@@ -1,3 +1,7 @@
+.divHoldingCard {
+  display: inline-block;
+}
+
 .card-container {
     width: 250px;
     border: 2px solid rgb(12, 45, 95);
