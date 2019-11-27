@@ -49,18 +49,18 @@ export default function Mood (props) {
             return 'There are currently no moods on record.';
         } else {
             return moods.map((mood, index) => {
+                let topic = mood.topic.toUpperCase();
+
                 let style = {
                     padding:10,
-                    margin:20,
-                    display:"inline-block",
+                    margin: 'auto',
+                    display:'block',
                     backgroundColor: 'black',
                     borderRadius: "50%",
                     width:50,
                     height:50,
                 }
-                // mood.overallSentiment === 'POSITIVE' ? style.color = 'green' : style.color = 'black';
-                // (change style to be correct based on overall sentiment and number)
-
+                //green
                 if(mood.overallSentiment.toLowerCase() === 'positive') {
                     if(mood.positive >= .25 && mood.positive <= 0.5) {
                         style.backgroundColor = '#4db6ac'
@@ -69,6 +69,7 @@ export default function Mood (props) {
                     } else if(mood.positive >=0.76 && mood.positive <= 1) {
                         style.backgroundColor = '#004d40'
                     }
+                //red
                 } else if(mood.overallSentiment.toLowerCase() === 'negative') {
                     if(mood.negative >= 0.25 && mood.negative <= 0.5) {
                         style.backgroundColor = '#f06292'
@@ -77,15 +78,17 @@ export default function Mood (props) {
                     } else if(mood.negative >= 0.76 && mood.negative <= 1) {
                         style.backgroundColor = '#880e4f'
                     }
+                //brown
                 } else if(mood.overallSentiment.toLowerCase() === 'mixed') {
                     if(mood.mixed >= 0.25 && mood.mixed <= 0.5) {
                         style.backgroundColor = '#a1887f'
                     } else if(mood.mixed >= 0.51 && mood.mixed <= 0.75) {
                         style.backgroundColor = '#795548'
                     } else if(mood.mixed >= 0.76 && mood.mixed <= 1) {
-                        style.backgroundColor = '#880e4f'
+                        style.backgroundColor = '#3e2723'
                     }
                 } else {
+                    //blue
                     if(mood.neutral >= 0.25 && mood.neutral <= 0.5) {
                         style.backgroundColor = '#64b5f6'
                     } else if(mood.neutral >= 0.51 && mood.neutral <= 0.75) {
@@ -102,12 +105,9 @@ export default function Mood (props) {
                                 <div className = "desc">
                                     {
                                         mood.topic &&
-                                    <h2 className = "moods__value">{mood.topic}</h2>
+                                    <h2 className = "moods__value">{topic}</h2>
                                     }
-                                    {
-                                        mood.positive && 
-                                    <h2 className = "moods__value" style={style}></h2>
-                                    }
+                                        <p style={style}></p>
                                     {
                                         mood.overallSentiment &&
                                     <h2 className = "moods__value">{mood.overallSentiment}</h2>
