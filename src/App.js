@@ -5,7 +5,6 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {Auth} from 'aws-amplify';
 import "./App.css";
 import Routes from "./Routes";
-import background from './sean-martin-bMhTQ4jdJtg-unsplash.jpg';
 
 function App(props) {
   const [isAuthenticating, setIsauthenticating] = useState(true);
@@ -33,27 +32,9 @@ function App(props) {
     props.history.push('/');
   }
 
-
-  const useWindowWith = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-      window.addEventListener('resize', handleWindowResize);
-      return () => window.removeEventListener('resize', handleWindowResize);
-    }, []);
-
-    return windowWidth;
-  }
-
-  const imageUrl =useWindowWith() >= 650 ? background : 'Screen to small to display image :(';
-
   return (
     !isAuthenticating &&
-    <div className="App container" style={{backgroundImage: `url(${imageUrl})`}}>
+    <div className="App container">
       <Navbar className = "navbar" fluid collapseOnSelect>
         <Navbar.Header>
           <Navbar.Toggle />
