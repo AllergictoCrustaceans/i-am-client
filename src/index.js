@@ -7,9 +7,9 @@ import * as serviceWorker from './serviceWorker';
 import Amplify from 'aws-amplify';
 import config from './config';
 
-import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/build/three.module.js';
-import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/controls/OrbitControls.js';
-import {GLTFLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
+import OrbitControls from 'three-orbitcontrols';
+import GLTFLoader from 'three-gltf-loader';
 import model from './tallTowerTEST_B.glb';
 
 Amplify.configure({
@@ -72,7 +72,7 @@ function main() {
     const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
     const planeMat = new THREE.MeshPhongMaterial({
       map: texture,
-      side: THREE.DoubleSize,
+      side: THREE.DoubleSide,
     });
     const mesh = new THREE.Mesh(planeGeo, planeMat);
     mesh.rotation.x = Math.PI * -0.5;
@@ -111,7 +111,7 @@ function main() {
     camera.near = boxSize / 100;
     camera.far = boxSize * 100;
 
-    camera.updateProjectMatrix();
+    camera.updateProjectionMatrix();
 
     camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
   }
@@ -149,7 +149,7 @@ function main() {
     if(resizeRendererToDisplaySize(renderer)) {
       const canvas = renderer.domElement;
       camera.aspect = canvas.clientWidth / canvas.clientHeight;
-      camera.updateProjectMatrix();
+      camera.updateProjectionMatrix();
     }
 
     renderer.render(scene, camera);
