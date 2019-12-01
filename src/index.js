@@ -10,7 +10,7 @@ import config from './config';
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/build/three.module.js';
 import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/controls/OrbitControls.js';
 import {GLTFLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r110/examples/jsm/loaders/GLTFLoader.js';
-
+import model from './tallTowerTEST_B.glb';
 
 Amplify.configure({
     Auth: {
@@ -118,7 +118,7 @@ function main() {
 
   {
     const gltfLoader = new GLTFLoader();
-    gltfLoader.load('', (gltf) => {
+    gltfLoader.load(model, (gltf) => {
       const root = gltf.scene;
       scene.add(root);
 
