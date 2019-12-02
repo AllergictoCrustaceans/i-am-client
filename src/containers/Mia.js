@@ -59,11 +59,11 @@ export default function Mia(props) {
 
     return (
         <div className="App">
-            <header className = "App=header" >
-                <h3 className = "App-title">Please greet Mia with "Hi, my name is _____ " to start a conversation</h3>
+            <header className = "App-header" >
+                <h3 className = "App-title" style={{textAlign: "center", padding: "10px"}}>Please greet Lex with "Hi, my name is _____ " to start a conversation</h3>
             </header>
             <ChatBot 
-            title="MIA"
+            title="LEX"
             theme={myTheme}
             botName="IAM"
             clearOnComplete={true}
