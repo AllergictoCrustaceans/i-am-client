@@ -5,7 +5,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {Auth} from 'aws-amplify';
 import "./App.css";
 import Routes from "./Routes";
-import background from './sean-martin-bMhTQ4jdJtg-unsplash.jpg';
+// import background from './sean-martin-bMhTQ4jdJtg-unsplash.jpg';
 
 function App(props) {
   const [isAuthenticating, setIsauthenticating] = useState(true);
@@ -34,26 +34,26 @@ function App(props) {
   }
 
 
-  const useWindowWith = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const useWindowWith = () => {
+  //   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  //   const handleWindowResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
 
-    useEffect(() => {
-      window.addEventListener('resize', handleWindowResize);
-      return () => window.removeEventListener('resize', handleWindowResize);
-    }, []);
+  //   useEffect(() => {
+  //     window.addEventListener('resize', handleWindowResize);
+  //     return () => window.removeEventListener('resize', handleWindowResize);
+  //   }, []);
 
-    return windowWidth;
-  }
+  //   return windowWidth;
+  // }
 
-  const imageUrl =useWindowWith() >= 650 ? background : 'Screen to small to display image :(';
+  // const imageUrl =useWindowWith() >= 650 ? background : 'Screen to small to display image :(';
 
   return (
     !isAuthenticating &&
-    <div className="App container" style={{backgroundImage: `url(${imageUrl})`}}>
+    <div className="App container" style={{backgroundColor: 'white'}}>
       <Navbar className = "navbar" fluid collapseOnSelect>
         <Navbar.Header>
           <Navbar.Toggle />
@@ -66,7 +66,7 @@ function App(props) {
                   <Link to="/main">Main</Link>
                 </Navbar.Brand> 
                 <Nav pullRight>
-                  <NavItem onClick={handleLogout}>Logout</NavItem>
+                  <NavItem className = "navItem" onClick={handleLogout}>Logout</NavItem>
                 </Nav> 
               </>
             : <>
@@ -75,10 +75,10 @@ function App(props) {
                 </Navbar.Brand>
                 <Nav pullRight>
                   <LinkContainer to="/signup">
-                    <NavItem>Signup</NavItem>
+                    <NavItem className = "navItem">Signup</NavItem>
                   </LinkContainer>
                   <LinkContainer to="/login">
-                    <NavItem>Login</NavItem>
+                    <NavItem className = "navItem">Login</NavItem>
                   </LinkContainer>
                 </Nav>
               </>
