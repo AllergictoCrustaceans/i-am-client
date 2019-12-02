@@ -63,29 +63,29 @@ export default function Mood (props) {
                 }
                 //green
                 if(mood.overallSentiment.toLowerCase() === 'positive') {
-                    if(mood.positive >= .25 && mood.positive <= 0.5) {
+                    if(mood.positive >= 0.25 && mood.positive <= 0.5) {
                         style.backgroundColor = '#4db6ac'
-                    } else if(mood.positive >= 0.51 && mood.positive <= 0.75) {
+                    } else if(mood.positive > 0.5 && mood.positive <= 0.75) {
                         style.backgroundColor = '#00796b'
-                    } else if(mood.positive >=0.76 && mood.positive <= 1) {
+                    } else if(mood.positive > 0.75 && mood.positive <= 1) {
                         style.backgroundColor = '#004d40'
                     }
                 //red
                 } else if(mood.overallSentiment.toLowerCase() === 'negative') {
-                    if(mood.negative >= 0.25 && mood.negative <= 0.5) {
+                    if(mood.negative >= 0.25 && mood.negative <= 0.50) {
                         style.backgroundColor = '#f06292'
-                    } else if(mood.negative >= 0.51 && mood.negative <= 0.75) {
+                    } else if(mood.negative > 0.50 && mood.negative <= 0.75) {
                         style.backgroundColor = '#e91e63'
-                    } else if(mood.negative >= 0.76 && mood.negative <= 1) {
+                    } else if(mood.negative > 0.75 && mood.negative <= 1) {
                         style.backgroundColor = '#880e4f'
                     }
                 //brown
                 } else if(mood.overallSentiment.toLowerCase() === 'mixed') {
                     if(mood.mixed >= 0.25 && mood.mixed <= 0.5) {
                         style.backgroundColor = '#a1887f'
-                    } else if(mood.mixed >= 0.51 && mood.mixed <= 0.75) {
+                    } else if(mood.mixed > 0.5 && mood.mixed <= 0.75) {
                         style.backgroundColor = '#795548'
-                    } else if(mood.mixed >= 0.76 && mood.mixed <= 1) {
+                    } else if(mood.mixed > 0.75 && mood.mixed <= 1) {
                         style.backgroundColor = '#3e2723'
                     }
                 } else {
