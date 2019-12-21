@@ -10,7 +10,8 @@ import config from './config';
 import * as THREE from 'three';
 import OrbitControls from 'three-orbitcontrols';
 import GLTFLoader from 'three-gltf-loader';
-import model from './tallTowerTEST_B.glb';
+
+const model = process.env.PUBLIC_URL + '/static/media/tallTowerTEST_B.glb';
 
 Amplify.configure({
     Auth: {
@@ -42,6 +43,7 @@ Amplify.configure({
   });
 
 function main() {
+  console.log('test');
   const canvas = document.querySelector('#c');
   const renderer = new THREE.WebGLRenderer({canvas});
 
@@ -121,6 +123,8 @@ function main() {
     gltfLoader.load(model, (gltf) => {
       const root = gltf.scene;
       scene.add(root);
+
+      console.log('model', model);
 
       const box = new THREE.Box3().setFromObject(root);
       const boxSize = box.getSize(new THREE.Vector3()).length();
