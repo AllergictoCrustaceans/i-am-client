@@ -135,7 +135,7 @@ function main() {
       controls.maxDistance = boxSize * 10;
       controls.target.copy(boxCenter);
       controls.update();
-    }); //go make a duplicate of the model
+    }); 
   }
 
   function resizeRendererToDisplaySize(renderer) {
